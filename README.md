@@ -1,4 +1,4 @@
-# Laboratorio 3 — Sistema de Búsqueda (Lista, ABB y B+)
+﻿# Laboratorio 3 — Sistema de Búsqueda (Lista, ABB y B+)
 
 **Estudiante:** Xiomara Echavarría Gallego — 〔COMPLETAR: tu código estudiantil / cédula〕
 **Curso:** Estructura de Datos — Universidad de Antioquia
@@ -52,22 +52,16 @@ se cae con datos ordenados, mientras que el B+ nunca se cae.
 
 ## 3. Las tres estructuras y mis decisiones de diseño
 
-Estructura
-Cómo busca
-Complejidad
-
-**Lista**
-recorre de uno en uno
-O(N)
-
-**ABB**
-baja por el árbol (menor a la izq., mayor a la der.)
-O(log N) desordenado · **O(N) ordenado (se degrada)**
-
-**B+**
-baja por el árbol y los datos quedan en las hojas
-O(log N) **siempre**
-
+<table>
+<thead>
+<tr><th>Estructura</th><th>Cómo busca</th><th>Complejidad</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Lista</strong></td><td>recorre de uno en uno</td><td>O(N)</td></tr>
+<tr><td><strong>ABB</strong></td><td>baja por el árbol (menor a la izq., mayor a la der.)</td><td>O(log N) desordenado · <strong>O(N) ordenado (se degrada)</strong></td></tr>
+<tr><td><strong>B+</strong></td><td>baja por el árbol y los datos quedan en las hojas</td><td>O(log N) <strong>siempre</strong></td></tr>
+</tbody>
+</table>
 Las decisiones que tomé y por qué:
 
 - **La Lista la hice con la lista de Python** (el profe lo permitió). Insertar es meter al
@@ -133,69 +127,41 @@ Las tablas completas están en **`datos/tablas.md`** y las gráficas en
 **Tiempo de una búsqueda (µs), `id` aleatorios.** La última columna es cuántas veces más
 lenta es la Lista que el B+:
 
-N
-Lista
-ABB
-B+
-Lista es … más lenta que B+
-
-1.000
-22,2
-1,31
-1,25
-18×
-
-20.000
-566
-3,13
-2,55
-222×
-
-100.000
-7.042
-5,50
-4,53
-**1.555×**
-
+<table>
+<thead>
+<tr><th align="right">N</th><th align="right">Lista</th><th align="right">ABB</th><th align="right">B+</th><th align="right">Lista es … más lenta que B+</th></tr>
+</thead>
+<tbody>
+<tr><td align="right">1.000</td><td align="right">22,2</td><td align="right">1,31</td><td align="right">1,25</td><td align="right">18×</td></tr>
+<tr><td align="right">20.000</td><td align="right">566</td><td align="right">3,13</td><td align="right">2,55</td><td align="right">222×</td></tr>
+<tr><td align="right">100.000</td><td align="right">7.042</td><td align="right">5,50</td><td align="right">4,53</td><td align="right"><strong>1.555×</strong></td></tr>
+</tbody>
+</table>
 **Tiempo de una búsqueda (µs), `id` ordenados.** Acá el ABB se degrada; la última columna es
 cuántas veces más lento es el ABB que el B+:
 
-N
-Lista
-ABB
-B+
-ABB es … más lento que B+
-
-1.000
-19,0
-50,0
-1,26
-40×
-
-20.000
-432
-1.102
-2,79
-**395×**
-
+<table>
+<thead>
+<tr><th align="right">N</th><th align="right">Lista</th><th align="right">ABB</th><th align="right">B+</th><th align="right">ABB es … más lento que B+</th></tr>
+</thead>
+<tbody>
+<tr><td align="right">1.000</td><td align="right">19,0</td><td align="right">50,0</td><td align="right">1,26</td><td align="right">40×</td></tr>
+<tr><td align="right">20.000</td><td align="right">432</td><td align="right">1.102</td><td align="right">2,79</td><td align="right"><strong>395×</strong></td></tr>
+</tbody>
+</table>
 **La prueba de la degradación: la altura de los árboles.** La altura es cuántos niveles hay
 que bajar; con `id` ordenados el ABB tiene altura igual a N (la escalera), y por eso se vuelve
 tan lento:
 
-N
-ABB aleatorio
-ABB ordenado
-B+
-
-1.000
-~23
-**1.000**
-~6
-
-20.000
-~34
-**20.000**
-~9
+<table>
+<thead>
+<tr><th align="right">N</th><th align="right">ABB aleatorio</th><th align="right">ABB ordenado</th><th align="right">B+</th></tr>
+</thead>
+<tbody>
+<tr><td align="right">1.000</td><td align="right">~23</td><td align="right"><strong>1.000</strong></td><td align="right">~6</td></tr>
+<tr><td align="right">20.000</td><td align="right">~34</td><td align="right"><strong>20.000</strong></td><td align="right">~9</td></tr>
+</tbody>
+</table>
 
 ---
 
@@ -249,54 +215,40 @@ vuelve tan lento como la Lista. Y la **Lista** solo sirve cuando hay pocos datos
 
 ## 10. Entorno (mi computador)
 
-Procesador
-AMD Ryzen 3 7320U with Radeon Graphics (2,40 GHz)
+<table>
+<tbody>
+<tr><td><strong>Procesador</strong></td><td>AMD Ryzen 3 7320U with Radeon Graphics (2,40 GHz)</td></tr>
+<tr><td><strong>RAM</strong></td><td>16 GB (13,7 GB utilizables)</td></tr>
+<tr><td><strong>Sistema operativo</strong></td><td>Windows 11, 64 bits (x64)</td></tr>
+<tr><td><strong>Python</strong></td><td>3.13.2</td></tr>
+<tr><td><strong>matplotlib</strong></td><td>3.11.2</td></tr>
+<tr><td><strong>Fecha de la corrida</strong></td><td>8 de octubre de 2026, ~10:50 a. m.</td></tr>
+<tr><td><strong>FACTOR usado</strong></td><td>1 (corrida normal, 10 repeticiones)</td></tr>
+</tbody>
+</table>
 
-RAM
-16 GB (13,7 GB utilizables)
-
-Sistema operativo
-Windows 11, 64 bits (x64)
-
-Python
-3.13.2
-
-matplotlib
-3.11.2
-
-Fecha de la corrida
-8 de octubre de 2026, ~10:50 a. m.
-
-FACTOR usado
-1 (corrida normal, 10 repeticiones)
+> Los datos del procesador, la RAM y Windows están en **Configuración → Sistema →
+> Información**. (No copié el "Identificador de dispositivo" ni el "Id. del producto" porque
+> son privados.)
 
 ---
 
 ## 11. Archivos del proyecto
 
-Archivo
-Qué es
-
-`lista.py`, `abb.py`, `bmas.py`
-Las tres estructuras
-
-`pruebas.py`
-Verifica que las estructuras funcionan
-
-`experimento.py`
-Mide los tiempos y guarda `datos/resultados.csv`
-
-`graficas.py`
-Genera `figuras/graficas.png` y `datos/tablas.md`
-
-`COMO_CORRER.md`
-Instrucciones paso a paso
-
-`GUIA_SUSTENTACION.md`
-Explicación detallada para la sustentación
-
-`README.md`
-Este documento
+<table>
+<thead>
+<tr><th>Archivo</th><th>Qué es</th></tr>
+</thead>
+<tbody>
+<tr><td><code>lista.py</code>, <code>abb.py</code>, <code>bmas.py</code></td><td>Las tres estructuras</td></tr>
+<tr><td><code>pruebas.py</code></td><td>Verifica que las estructuras funcionan</td></tr>
+<tr><td><code>experimento.py</code></td><td>Mide los tiempos y guarda <code>datos/resultados.csv</code></td></tr>
+<tr><td><code>graficas.py</code></td><td>Genera <code>figuras/graficas.png</code> y <code>datos/tablas.md</code></td></tr>
+<tr><td><code>COMO_CORRER.md</code></td><td>Instrucciones paso a paso</td></tr>
+<tr><td><code>GUIA_SUSTENTACION.md</code></td><td>Explicación detallada para la sustentación</td></tr>
+<tr><td><code>README.md</code></td><td>Este documento</td></tr>
+</tbody>
+</table>
 
 ---
 
@@ -312,3 +264,5 @@ permitido y declarado). Cada una entregó su propio código y sus propios datos.
 - **Las mediciones las hice yo**, en mi propio computador, con las condiciones descritas en la
 sección "Entorno".
 - **Entiendo cómo funciona el código y puedo sustentarlo.**
+
+Xiomara Echavarría Gallego
